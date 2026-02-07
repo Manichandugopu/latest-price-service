@@ -65,8 +65,8 @@ public class LatestPriceServiceImpl implements LatestPriceService {
         BatchState batch = activeBatches.get(batchId);
         //handling of incorrect producer usage
         if (batch == null || batch.completed || batch.cancelled) {
-            log.warn("Upload ignored for closed batch [batchId={}, completed={}, cancelled={}]",
-                    batchId, batch.completed, batch.cancelled);
+            log.warn("Upload ignored for closed batch [batchId={}]",
+                    batchId);
             return;
         }
         // Multiple threads may call this concurrently
